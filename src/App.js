@@ -8,6 +8,7 @@ import Support from "./components/Support";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Friends from "./components/Friends";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="Friends" element={<Friends />} />
         </Routes>
       </div>
     </Router>

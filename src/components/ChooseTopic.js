@@ -12,12 +12,21 @@ function QuestionPage() {
   const { topicId, difficulty } = state || { topicId: 9, difficulty: "easy" }; // Default values if state is undefined
 
   useEffect(() => {
-    const fetchQuestions = async () => {
+    const fetchQuestions = async (retries = 3, delay = 1000) => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`https://opentdb.com/api.php?amount=10&category=<CATEGORY_ID>&difficulty=<DIFFICULTY>&type=multiple
-`);
+        const response = await fetch(
+          `https://opentdb.com/api.php?amount=10&category=${topicId}&difficulty=${difficulty}&type=multiple`
+        );
+        if (!response.ok) {
+          if (response.status === 429 && retries > 0) {
+            // If rate-limited, retry after a delay
+            setTimeout(() => fetchQuestions(retries - 1, delay * 2), delay);
+            return;
+          }
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         if (data.results) {
           setQuestions(data.results);
@@ -25,7 +34,9 @@ function QuestionPage() {
           throw new Error("No questions found");
         }
       } catch (error) {
-        setError("Failed to fetch questions. Please try again.");
+        setError(
+          `Failed to fetch questions. Please try again. Error: ${error.message}`
+        );
         console.error("Failed to fetch questions", error);
       }
       setLoading(false);
@@ -70,7 +81,10 @@ function QuestionPage() {
       </main>
 
       <footer className="question-page-footer">
-        <button className="footer-button" onClick={() => navigate("/languages")}>
+        <button
+          className="footer-button"
+          onClick={() => navigate("/languages")}
+        >
           Languages
         </button>
         <button className="footer-button" onClick={() => navigate("/support")}>
