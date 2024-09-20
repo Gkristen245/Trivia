@@ -11,11 +11,11 @@ function Support() {
 
   return (
     <div className="support-container">
+      <h1>Support</h1>
+      <p>Support information and contact details will be shown here.</p>
       <button className="back-button" onClick={handleBackClick}>
         Back
       </button>
-      <h1>Support</h1>
-      <p>Support information and contact details will be shown here.</p>
     </div>
   );
 }

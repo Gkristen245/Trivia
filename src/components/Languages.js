@@ -11,11 +11,11 @@ function Languages() {
 
   return (
     <div className="footer-page">
+      <h1>Languages</h1>
+      <p>Languages available: Spanish</p>
       <button className="back-button" onClick={handleBackClick}>
         Back
       </button>
-      <h1>Languages</h1>
-      <p>List of available languages will be shown here.</p>
     </div>
   );
 }
