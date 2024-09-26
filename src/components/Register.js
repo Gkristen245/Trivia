@@ -17,10 +17,6 @@ function Register() {
         </div>
       </header>
 
-      <button className="back-button" onClick={handleBackClick}>
-        Back
-      </button>
-
       <main className="register-form">
         <h1>Register</h1>
         <form>
@@ -34,6 +30,10 @@ function Register() {
             Register
           </button>
         </form>
+
+        <button className="back-button" onClick={handleBackClick}>
+          Back
+        </button>
       </main>
     </div>
   );

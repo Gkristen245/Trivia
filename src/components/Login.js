@@ -17,10 +17,6 @@ function Login() {
         </div>
       </header>
 
-      <button className="back-button" onClick={handleBackClick}>
-        Back
-      </button>
-
       <main className="login-form">
         <h1>Login</h1>
         <form>
@@ -32,6 +28,9 @@ function Login() {
             Login
           </button>
         </form>
+        <button className="back-button" onClick={handleBackClick}>
+          Back
+        </button>
       </main>
     </div>
   );

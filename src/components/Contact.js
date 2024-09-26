@@ -12,11 +12,12 @@ function Contact() {
   return (
     <div className="contact-container">
       <h1>Contact Us</h1>
-      <p>
-        Contact information for the team: Ritik - Rhedaoo@charlotte.edu Kristen
-        - Kglielmi@charlotte.edu Katrina - kwils178@charlotte.edu Alexa -
-        avazque7@charlotte.edu
-      </p>
+      <ul>
+        <li>Ritik - Rhedaoo@charlotte.edu</li>
+        <li>Kristen - Kglielmi@charlotte.edu</li>
+        <li>Katrina - kwils178@charlotte.edu</li>
+        <li>Alexa - avazque7@charlotte.edu</li>
+      </ul>
       <button className="back-button" onClick={handleBackClick}>
         Back
       </button>
